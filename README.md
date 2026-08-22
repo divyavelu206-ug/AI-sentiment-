@@ -6,7 +6,7 @@ A full-stack AI-powered web application that automatically analyzes student, cus
 
 📌 Problem Statement
 
-Colleges, institutions, and small businesses collect a large amount of written feedback from students, customers, and employees. Manually reading and analyzing every response is time-consuming and often causes important negative feedback to be overlooked.
+Colleges, institutions, and small businesses collect a large amount of written feedback from students, customers, and employees. Manually the reading and analyzing every response is time-consuming and often causes important negative feedback to be overlooked.
 
 The objective is to build a web-based application that automatically analyzes multiple feedback entries, classifies sentiments as Positive, Negative, or Neutral, highlights critical feedback, and presents meaningful insights through an interactive dashboard.
 
