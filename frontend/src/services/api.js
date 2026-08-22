@@ -1,5 +1,7 @@
-// API Base URL - uses Vite Proxy (/api) or direct localhost (http://127.0.0.1:5000/api)
-const API_BASE_URL = window.location.origin.includes('5173') ? '/api' : 'http://127.0.0.1:5000/api';
+// API Base URL - Uses Vercel in Production, and Vite proxy / localhost in Dev
+const API_BASE_URL = import.meta.env.PROD 
+  ? 'https://ai-sentiment-five.vercel.app/api' 
+  : '/api';
 
 /**
  * Checks backend health status
@@ -10,15 +12,8 @@ export async function checkHealth() {
     if (!res.ok) throw new Error(`Health check failed with status ${res.status}`);
     return await res.json();
   } catch (error) {
-    // Retry with direct localhost URL if proxy fails
-    try {
-      const fallbackRes = await fetch('http://127.0.0.1:5000/api/health');
-      if (!fallbackRes.ok) throw new Error('Direct health check failed');
-      return await fallbackRes.json();
-    } catch (fallbackErr) {
-      console.error('Health check error:', error);
-      throw error;
-    }
+    console.error('Health check error:', error);
+    throw error;
   }
 }
 
@@ -42,20 +37,8 @@ export async function analyzeFeedback(feedbackList) {
     }
     return data;
   } catch (error) {
-    // Fallback to direct localhost URL if proxy fails
-    try {
-      const fallbackRes = await fetch('http://127.0.0.1:5000/api/analyze', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ feedback: feedbackList }),
-      });
-      const fallbackData = await fallbackRes.json();
-      if (!fallbackRes.ok) throw new Error(fallbackData.error || 'Direct analysis failed.');
-      return fallbackData;
-    } catch (fallbackErr) {
-      console.error('Analyze feedback error:', error);
-      throw error;
-    }
+    console.error('Analyze feedback error:', error);
+    throw error;
   }
 }
 

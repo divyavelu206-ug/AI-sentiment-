@@ -4,4 +4,3 @@ pandas
 vaderSentiment
 reportlab
 python-dotenv
-transformers
