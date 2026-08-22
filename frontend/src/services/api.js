@@ -1,8 +1,7 @@
 // API Base URL - Uses Vercel in Production, and Vite proxy / localhost in Dev
 const API_BASE_URL = import.meta.env.PROD 
-  ? 'https://ai-sentiment-five.vercel.app/api' 
+  ? 'https://ai-sentiment-r7d5.vercel.app/api'
   : '/api';
-
 /**
  * Checks backend health status
  */
