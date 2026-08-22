@@ -149,197 +149,49 @@ Storage
 
 SQLite (Optional)
 
+System Architecture
+
+                START
+                   ↓
+          Open SmartFeedback AI
+                   ↓
+        Enter Feedback / Upload CSV
+                   ↓
+          Validate Input Data
+                   ↓
+        Send Data to Flask Backend
+                   ↓
+       Hugging Face NLP Model
+         Performs Sentiment Analysis
+                   ↓
+      ┌────────────┬────────────┐
+      ↓            ↓            ↓
+   Positive      Negative     Neutral
+      │            │            │
+      └────────────┼────────────┘
+                   ↓
+       Generate Confidence Score
+                   ↓
+        Store / Process Results
+                   ↓
+       Interactive Dashboard
+                   ↓
+      ┌────────────┼────────────┐
+      ↓            ↓            ↓
+   Sentiment     Charts &      AI
+   Summary      Statistics    Insights
+                   ↓
+          Needs Attention
+          / Positive Highlights
+                   ↓
+          Search & Filter Results
+                   ↓
+          Export Results as CSV
+                   ↓
+                  END
 
 
 
-File Format
-
-	
-
-CSV, JSON
-
-📂 Project Structure
-smartfeedback-ai/
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   ├── package.json
-│   └── vite.config.js
-│
-├── backend/
-│   ├── app.py
-│   ├── sentiment.py
-│   ├── requirements.txt
-│   └── sample_feedback.csv
-│
-├── README.md
-└── .gitignore
-🏗 System Architecture
-🔄 Application Workflow
-
-User enters feedback or uploads a CSV file.
-
-React frontend sends the data to the Flask backend.
-
-Flask processes the feedback using a Hugging Face sentiment model.
-
-Each feedback receives a sentiment label and confidence score.
-
-Results are displayed in an interactive dashboard.
-
-Users can export analyzed results as CSV.
-
-🚀 Installation
-Backend Setup
-cd backend
-
-python -m venv venv
-
-venv\Scripts\activate
-
-pip install -r requirements.txt
-
-python app.py
-
-Backend runs at:
-
-http://127.0.0.1:5000
-Frontend Setup
-cd frontend
-
-npm install
-
-npm run dev
-
-Frontend runs at:
-
-http://localhost:5173
-📤 Sample CSV Format
-feedback
-"The food quality was excellent."
-"The service was very poor."
-"The classroom was okay."
-"Staff were friendly and helpful."
-🔌 API Endpoints
-
-Method
-
-	
-
-Endpoint
-
-	
-
-Purpose
-
-
-
-
-GET
-
-	
-
-/api/health
-
-	
-
-Backend Status
-
-
-
-
-POST
-
-	
-
-/api/analyze
-
-	
-
-Analyze Manual Feedback
-
-
-
-
-POST
-
-	
-
-/api/analyze-csv
-
-	
-
-Analyze Uploaded CSV
-
-📊 Example Output
-
-Feedback
-
-	
-
-Sentiment
-
-	
-
-Confidence
-
-
-
-
-The food was excellent
-
-	
-
-Positive
-
-	
-
-96%
-
-
-
-
-Service was terrible
-
-	
-
-Negative
-
-	
-
-94%
-
-
-
-
-The experience was okay
-
-	
-
-Neutral
-
-	
-
-72%
-
-🎯 Future Enhancements
-
-PDF Report Generation
-
-Multi-language Sentiment Analysis
-
-User Authentication
-
-Cloud Deployment
-
-Feedback Trend Analysis
-
-Advanced Admin Dashboard
 
 👨‍💻 Team Members
 
