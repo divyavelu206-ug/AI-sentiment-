@@ -8,7 +8,10 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-from sentiment import analyzer
+try:
+    from backend.sentiment import analyzer
+except ImportError:
+    from sentiment import analyzer
 
 app = Flask(__name__)
 

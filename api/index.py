@@ -1,10 +1,12 @@
 import sys
 import os
 
-# Add the backend folder to the system path so Python can find sentiment.py and app.py
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'backend')))
+# Ensure the root directory is in sys.path
+root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if root_path not in sys.path:
+    sys.path.insert(0, root_path)
 
-from app import app
+from backend.app import app
 
 # Vercel needs the application instance exposed for WSGI
 if __name__ == '__main__':
