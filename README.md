@@ -1,4 +1,4 @@
-# 🤖 SmartFeedback AI – Sentiment Analysis Tool
+# 🤖 FeedSense AI – Enterprise Sentiment Analysis System
 
 > **Turn Feedback into Actionable Insights**
 
@@ -16,7 +16,7 @@ The objective is to build a web-based application that automatically analyzes mu
 
 ## 💡 Proposed Solution
 
-**SmartFeedback AI** is a full-stack AI application that uses a Hugging Face Transformer model (with VADER fallback) to perform real-time sentiment analysis.
+**FeedSense AI** is a full-stack AI application that uses a Hugging Face Transformer model (with VADER fallback) to perform real-time sentiment analysis.
 
 The application allows users to:
 - Enter multiple feedback entries manually.
