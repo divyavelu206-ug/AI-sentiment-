@@ -151,47 +151,39 @@ SQLite (Optional)
 
 System Architecture
 
-                START
-                   ↓
-          Open SmartFeedback AI
-                   ↓
-        Enter Feedback / Upload CSV
-                   ↓
-          Validate Input Data
-                   ↓
-        Send Data to Flask Backend
-                   ↓
-       Hugging Face NLP Model
-         Performs Sentiment Analysis
-                   ↓
-      ┌────────────┬────────────┐
-      ↓            ↓            ↓
-   Positive      Negative     Neutral
-      │            │            │
-      └────────────┼────────────┘
-                   ↓
-       Generate Confidence Score
-                   ↓
-        Store / Process Results
-                   ↓
-       Interactive Dashboard
-                   ↓
-      ┌────────────┼────────────┐
-      ↓            ↓            ↓
-   Sentiment     Charts &      AI
-   Summary      Statistics    Insights
-                   ↓
-          Needs Attention
-          / Positive Highlights
-                   ↓
-          Search & Filter Results
-                   ↓
-          Export Results as CSV
-                   ↓
-                  END
-
-
-
+START
+  ↓
+Open SmartFeedback AI
+  ↓
+Enter Feedback / Upload CSV
+  ↓
+Validate Input Data
+  ↓
+Send Data to Flask Backend
+  ↓
+Hugging Face NLP Model
+  ↓
+Sentiment Analysis
+  ↓
+ ┌──────────┬──────────┬──────────┐
+ ↓          ↓          ↓
+Positive   Negative   Neutral
+ └──────────┴──────────┘
+            ↓
+     Generate Confidence Score
+            ↓
+      Process & Store Results
+            ↓
+      Interactive Dashboard
+            ↓
+ ┌──────────┬──────────┬──────────┐
+ ↓          ↓          ↓
+Charts    AI Insights  Search &
+           & Stats     Filter
+            ↓
+       Export Results as CSV
+            ↓
+           END
 
 👨‍💻 Team Members
 
