@@ -4,8 +4,8 @@ import { Sparkles, ThumbsUp, Star } from 'lucide-react';
 export default function PositiveHighlights({ results }) {
   if (!results) return null;
 
-  const positiveItems = results
-    .filter(item => item.sentiment === 'Positive')
+  const allPositiveItems = results.filter(item => item.sentiment === 'Positive');
+  const positiveItems = allPositiveItems
     .sort((a, b) => b.confidence - a.confidence)
     .slice(0, 6);
 
@@ -21,11 +21,11 @@ export default function PositiveHighlights({ results }) {
           <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
             Positive Highlights
             <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">
-              {positiveItems.length}
+              {allPositiveItems.length}
             </span>
           </h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400">
-            Showcases top rated positive user feedback to identify organizational strengths
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+            Showing top {positiveItems.length} highest confidence positive predictions
           </p>
         </div>
       </div>
