@@ -83,16 +83,16 @@ class SentimentAnalyzer:
                 print(f"HF Inference fallback to VADER: {e}")
 
         # VADER Pure Calculation (Fallback / Lightweight)
-        if compound >= 0.15:
+        if compound >= 0.25:
             sentiment = "Positive"
             confidence = round(50.0 + (compound * 48.0), 1)
-        elif compound <= -0.15:
+        elif compound <= -0.25:
             sentiment = "Negative"
             confidence = round(50.0 + (abs(compound) * 48.0), 1)
         else:
             sentiment = "Neutral"
             # Neutral confidence calculation based on zero sentiment polarity
-            confidence = round(65.0 + ((0.15 - abs(compound)) * 100.0), 1)
+            confidence = round(65.0 + ((0.25 - abs(compound)) * 100.0), 1)
 
         return {
             "text": cleaned_text,
