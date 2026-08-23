@@ -74,10 +74,29 @@ export default function NeedsAttention({ results, summary }) {
               </p>
               
               <div className="flex items-center justify-between text-[11px] font-semibold border-t border-slate-200/60 dark:border-slate-700/60 pt-2">
-                <span className="flex items-center text-rose-600 dark:text-rose-400">
-                  <XCircle className="w-3.5 h-3.5 mr-1" />
-                  {item.sentiment}
-                </span>
+                <div className="flex items-center space-x-2">
+                  <span className={`flex items-center ${
+                    item.sentiment === 'Negative' 
+                      ? 'text-rose-600 dark:text-rose-400' 
+                      : item.sentiment === 'Positive'
+                      ? 'text-emerald-600 dark:text-emerald-400'
+                      : 'text-amber-600 dark:text-amber-400'
+                  }`}>
+                    {item.sentiment === 'Negative' ? (
+                      <XCircle className="w-3.5 h-3.5 mr-1" />
+                    ) : item.sentiment === 'Positive' ? (
+                      <AlertCircle className="w-3.5 h-3.5 mr-1" />
+                    ) : (
+                      <HelpCircle className="w-3.5 h-3.5 mr-1" />
+                    )}
+                    {item.sentiment}
+                  </span>
+                  {item.sentiment !== 'Negative' && (
+                    <span className="px-1.5 py-0.5 rounded text-[9px] bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300">
+                      Low Confidence
+                    </span>
+                  )}
+                </div>
                 <span className="text-slate-500 dark:text-slate-400">
                   Confidence: <span className="font-bold text-slate-700 dark:text-slate-300">{item.confidence}%</span>
                 </span>
