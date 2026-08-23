@@ -6,12 +6,11 @@ export default function NeedsAttention({ results, summary }) {
 
   if (!results) return null;
 
-  // Filter negative feedback + low confidence (<65%) items
+  // Filter ONLY negative feedback items
   const attentionItems = results.filter(item => {
     const isNegative = item.sentiment === 'Negative';
-    const isLowConfidence = item.confidence < 65.0;
     const matchesSearch = searchQuery ? item.text.toLowerCase().includes(searchQuery.toLowerCase()) : true;
-    return (isNegative || isLowConfidence) && matchesSearch;
+    return isNegative && matchesSearch;
   });
 
   const highNegativeAlert = summary?.high_negative_alert;
@@ -33,7 +32,7 @@ export default function NeedsAttention({ results, summary }) {
               </span>
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Isolates negative feedback and low-confidence predictions requiring administrative action
+              Isolates negative feedback requiring administrative action
             </p>
           </div>
         </div>
